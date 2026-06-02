@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#0b1120] text-slate-200 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-dark-card/60 backdrop-blur-xl border border-white/5 rounded-2xl shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+  
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply bg-white/10 border-white/20 transform -translate-y-1;
+    box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.3);
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden px-5 py-2.5 bg-gradient-to-br from-primary via-primary/80 to-accent text-white rounded-xl font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all duration-200 focus:ring-2 focus:ring-accent/50 focus:outline-none;
+  }
+  
+  .badge-passed {
+    @apply px-3 py-1 bg-status-passed/15 text-status-passed border border-status-passed/30 rounded-full text-[10px] font-bold uppercase tracking-widest;
+  }
+  
+  .badge-failed {
+    @apply px-3 py-1 bg-status-failed/15 text-status-failed border border-status-failed/30 rounded-full text-[10px] font-bold uppercase tracking-widest;
+  }
+  
+  .badge-skipped {
+    @apply px-3 py-1 bg-status-skipped/15 text-status-skipped border border-status-skipped/30 rounded-full text-[10px] font-bold uppercase tracking-widest;
+  }
+
+  /* Custom Glow Animations */
+  .glow-purple {
+    @apply relative;
+  }
+  .glow-purple::after {
+    content: '';
+    @apply absolute -inset-0.5 bg-gradient-to-r from-accent to-primary rounded-2xl blur opacity-20 transition duration-1000 group-hover:opacity-40 pointer-events-none -z-10;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 15px currentColor;
+  }
+}
